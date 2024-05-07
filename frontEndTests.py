@@ -93,7 +93,7 @@ class TestUI(unittest.TestCase):
     def test_success_login(self):
         self.driver.get("http://localhost:5000/login")
         self.driver.find_element(By.ID, "emailInput").send_keys("ronen@gmail.com")
-        self.driver.find_element(By.ID, "passwordInput").send_keys("ronen")
+        self.driver.find_element(By.ID, "passwordInput").send_keys("ronen123")
         self.driver.find_element(By.ID, "submit").click()
         assert "You have been logged in successfully" in self.driver.page_source #this message we expect that it displayed 
         self.driver.find_element(By.ID,"accountID").click()
@@ -104,7 +104,7 @@ class TestUI(unittest.TestCase):
     result = display message that profile has been updated successfully
     '''
     def test_updateProfile_success_user(self):
-        self.login_user("ronen@gmail.com","ronen")
+        self.login_user("ronen@gmail.com","ronen123")
         self.driver.get("http://localhost:5000/updateProfile")
         self.driver.find_element(By.ID, "fnameID").clear()
         self.driver.find_element(By.ID, "fnameID").send_keys("israel") #change firstname from ronen to israel 
@@ -121,7 +121,7 @@ class TestUI(unittest.TestCase):
     result = dipslay error message that username and email exist and choose another one
     '''
     def test_updateProfile_failed_existUsername_user(self):
-        self.login_user("ronen@gmail.com","ronen")
+        self.login_user("ronen@gmail.com","ronen123")
         self.driver.get("http://localhost:5000/updateProfile")
         self.driver.find_element(By.ID, "usernameID").clear() #clear the input of username before edit 
         self.driver.find_element(By.ID, "usernameID").send_keys("adham")
@@ -145,7 +145,7 @@ class TestUI(unittest.TestCase):
     result = display user_home and not global Home
     '''
     def test_home_loggedIN(self):
-        self.login_user("ronen@gmail.com","ronen") #make login
+        self.login_user("ronen@gmail.com","ronen123") #make login
         assert "history" in self.driver.page_source
         assert "filter" in self.driver.page_source #user_home page include filter and history words 
         self.driver.find_element(By.ID,"accountID").click()
@@ -157,7 +157,7 @@ class TestUI(unittest.TestCase):
     result = history table in history page updated and new row (with the data entered) appear in the table in this row 
     '''
     def test_enteredDetails_history_filtering(self):
-        self.login_user("ronen@gmail.com","ronen") #make login
+        self.login_user("ronen@gmail.com","ronen123") #make login
         self.driver.find_element(By.ID, "filteringID").click()
         self.driver.find_element(By.ID, "urlID").send_keys("https://www.newsWebsiteURL.com")
         self.driver.find_element(By.ID,"filter_type-1").click()
@@ -174,7 +174,7 @@ class TestUI(unittest.TestCase):
     result = display page that said the filtering not success 
     '''
     def test_filtering_with_not_exist_newWebsite(self):
-        self.login_user("ronen@gmail.com","ronen") #make login
+        self.login_user("ronen@gmail.com","ronen123") #make login
         self.driver.find_element(By.ID, "filteringID").click()
         self.driver.find_element(By.ID, "urlID").send_keys("https://www.notExistURL.com") #entered not exist website 
         self.driver.find_element(By.ID,"filter_type-1").click()
@@ -194,7 +194,7 @@ class TestUI(unittest.TestCase):
     result = display the newswebsite filtered (customized for user)
     '''
     # def test_filtering_with_exist_newWebsite(self):
-    #     self.login_user("ronen@gmail.com","ronen") #make login
+    #     self.login_user("ronen@gmail.com","ronen123") #make login
     #     self.driver.find_element(By.ID, "filteringID").click()
     #     self.driver.find_element(By.ID, "urlID").send_keys("https://www.jpost.com/") #entered exist news website 
     #     self.driver.find_element(By.ID,"filter_type-1").click()

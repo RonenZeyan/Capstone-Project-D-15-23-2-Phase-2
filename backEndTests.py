@@ -6,12 +6,19 @@ from flask_sqlalchemy import SQLAlchemy
 from assr.models import User,FilteringHistory,wordsHistory,optionHistory
 from flask_login import login_user,logout_user,current_user
 
+'''
+to run this tests you must comment the database in row 13 in path  assr/__init__.py 
+and remove the comment from row 14.
+comment this : app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///websiteFilteringDB'
+un comment this : # app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbfortesting'
+and run this file 
+'''
 
 class TestBase(TestCase):
 
     def create_app(self):
         # app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://root:''@localhost/dbfortesting' 
-        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbfortesting'
+        app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///dbfortesting' 
 
         app.config['TESTING'] = True  #this configuration help us to set that the app in testing mode
         return app

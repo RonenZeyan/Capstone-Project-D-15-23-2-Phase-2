@@ -10,3 +10,4 @@ flask-sqlalchemy
 flask-bcrypt
 Flask-Migrate
 email_validator
+Flask-Testing
