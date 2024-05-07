@@ -1,0 +1,12 @@
+Flask
+Flask-WTF
+WTForms
+flask-login
+requests
+beautifulsoup4
+nltk
+urllib3
+flask-sqlalchemy
+flask-bcrypt
+Flask-Migrate
+email_validator

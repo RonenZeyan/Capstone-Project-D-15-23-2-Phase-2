@@ -1,0 +1,20 @@
+:: this txt file is used to help you how to install requirments for our project
+
+:: to start the project you should install requirments then run the server
+
+:: open the code project in vs code 
+
+:: install the requirments by enter this string in terminal of vscode " .\install_requirments_for_project.bat " (without " " ) 
+
+:: wait until all requirments installed succesfully 
+
+:: go to file called "run.py" and run it 
+
+:: navigate in browser to http://127.0.0.1:5000/ 
+
+
+
+
+
+
+
